@@ -3,10 +3,17 @@ import TextInput from '../textInput/TextInput'
 
 class TextDisplay extends Component {
 
-	render() {
-		return 
+	handleClick() {
+		this.props.deleteLetter()
+	}
 
-		<div>Hey, I'm displaying text: {this.props.text}</div>
+	render() {
+		return (
+			<div>
+				<div>Hey, I am displaying text: {this.props.text}</div>
+				<button onClick={this.handleClick.bind(this)}>Delete One Letter</button>
+			</div>
+		)
 	}
 }
 
