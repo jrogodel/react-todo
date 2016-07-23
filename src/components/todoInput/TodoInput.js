@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import TextDisplay from '../textDisplay/TextDisplay'
 
-class TextInput extends Component {
+class TodoInput extends Component {
 
 	constructor() {
 		super()
@@ -30,14 +29,14 @@ class TextInput extends Component {
 			<div>
 				<input 
 					type="text" 
-					placeholder="Placeholder!" 
+					placeholder="Enter your task!"  
 					value={this.state.inputText}
-					onChange={this.handleChange.bind(this)} 
+					onChange={this.handleChange.bind(this)}
 				/>
-				<TextDisplay text={this.state.inputText} deleteLetter={this.deleteLetter.bind(this)}/>
+				<button>Just do it</button>
 			</div>
 		)
 	}
 }
 
-export default TextInput
+export default TodoInput
