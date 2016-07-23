@@ -2,20 +2,13 @@ import React, { Component } from 'react'
 
 class TodoInput extends Component {
 
-	constructor() {
-		super()
-
+	constructor(props) {
+		super(props)
 		this.state = {
 			inputText: ""
 		};
 	}
 
-	deleteLetter() {
-
-		this.setState({
-			inputText: this.state.inputText.substring(0, this.state.inputText.length - 1)
-		})
-	}
 	
 	handleChange(event) {
 		this.setState({
@@ -29,7 +22,7 @@ class TodoInput extends Component {
 			<div>
 				<input 
 					type="text" 
-					placeholder="Enter your task!"  
+					placeholder="Enter your task here =>"  
 					value={this.state.inputText}
 					onChange={this.handleChange.bind(this)}
 				/>
