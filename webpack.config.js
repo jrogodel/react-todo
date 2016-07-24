@@ -10,7 +10,6 @@ const sassLoaders = [
   'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, '/.client')
 ]
 
-
 const config = {
   
   // INPUT
@@ -52,8 +51,6 @@ const config = {
     new ExtractTextPlugin('[name].css')
   ],
   postcss:
-
-
 
   // RESOLVE
   resolve: { 
