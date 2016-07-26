@@ -1,36 +1,30 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-    devServer: {
-        inline: true,
-        hot: true,
-        contentBase: './src',
-        port: 3000
-    },
-    devtool: 'cheap-module-eval-source-map',
-    entry: './dev/js/index.js',
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel',
-                query:
-                {
-                    presets: ['es2015', 'react']
-                }
-            },
-            {
-                test: /\.styl/,
-                loader: 'style-loader!css-loader!stylus-loader'
-            }
-        ]
-    },
-    output: {
-        path: 'src',
-        filename: 'js/bundle.min.js'
-    },
+  devtool:'eval',
+  entry: [
+    'webpack-dev-server/client?http://localhost:3030',
+    'webpack/hot/only-dev-server',
+    './src/index'
+  ],
+  output: {
+    path: path.join(__dirname, 'dist')
+    filename: 'bundle.js',
+    publicPath: '/static/'
+  },
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loaders: ['react-hot', 'babel']
+    }
+    {
+      test: /\.styl/,
+      loader: 'style-loader!css-loader!stylus-loader'
+    }
+    ]
+  },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin()
     ]
