@@ -4,6 +4,7 @@ var webpack = require('webpack');
 module.exports = {
     devServer: {
         inline: true,
+        hot: true,
         contentBase: './src',
         port: 3000
     },
@@ -13,8 +14,12 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                loaders: ['babel'],
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                loader: 'babel',
+                query:
+                {
+                    presets: ['es2015', 'react']
+                }
             },
             {
                 test: /\.styl/,
